@@ -1,13 +1,13 @@
-package itea.lsn8.DZ86_CopyFilesSequence;
+package itea.lsn9.DZ93_CopyFilesSequence;
 
 import java.io.*;
 
 public class Main {
 
-    static String pathTarg = "C:\\Temp\\11\\";
+    static String pathTarget = "C:\\Temp\\11\\";
 
     public static void main(String[] args) throws Exception {
-        File file = new File(pathTarg);
+        File file = new File(pathTarget);
         FilenameFilter filter = new MyFilter();
         String[] ar = file.list(filter);
 
@@ -16,19 +16,19 @@ public class Main {
             public int read() throws IOException {
                 return 0;
             }
-        }
+        };
         InputStream n2 = new InputStream() {
             @Override
             public int read() throws IOException {
                 return 0;
             }
-        }
-
+        };
         SequenceInputStream sis = new SequenceInputStream(n1, n2);*/
-        FileOutputStream out = new FileOutputStream(pathTarg + "result_f.txt");
+
+        FileOutputStream out = new FileOutputStream(pathTarget + "result_f.txt");
         try {
             for (int i = 0; i < ar.length; i++) {
-                FileInputStream in = new FileInputStream(pathTarg + ar[i]);
+                FileInputStream in = new FileInputStream(pathTarget + ar[i]);
                 try {
                     byte[] buf = new byte[1024]; // 1 KB
                     int r;

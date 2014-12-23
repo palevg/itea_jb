@@ -1,34 +1,25 @@
-package itea.lsn8.DZ86_CopyFilesSequence;
+package itea.lsn9.DZ92_CopyFiles;
 
-import java.io.*;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 
 public class Main {
 
     static String pathTarg = "C:\\Temp\\11\\";
+    static String pathDest = "C:\\Temp\\22\\";
 
     public static void main(String[] args) throws Exception {
+        // копирование всех файлов из одного каталога в другой
         File file = new File(pathTarg);
         FilenameFilter filter = new MyFilter();
         String[] ar = file.list(filter);
-
-        /*InputStream n1 = new InputStream() {
-            @Override
-            public int read() throws IOException {
-                return 0;
-            }
-        }
-        InputStream n2 = new InputStream() {
-            @Override
-            public int read() throws IOException {
-                return 0;
-            }
-        }
-
-        SequenceInputStream sis = new SequenceInputStream(n1, n2);*/
-        FileOutputStream out = new FileOutputStream(pathTarg + "result_f.txt");
-        try {
-            for (int i = 0; i < ar.length; i++) {
-                FileInputStream in = new FileInputStream(pathTarg + ar[i]);
+        for (int i = 0; i < ar.length; i++) {
+            FileInputStream in = new FileInputStream(pathTarg + ar[i]);
+            try {
+                FileOutputStream out = new FileOutputStream(pathDest + ar[i]);
                 try {
                     byte[] buf = new byte[1024]; // 1 KB
                     int r;
@@ -38,11 +29,11 @@ public class Main {
                             out.write(buf, 0, r);
                     } while (r > 0);
                 } finally {
-                    in.close();
+                    out.close();
                 }
+            } finally {
+                in.close();
             }
-        } finally {
-            out.close();
         }
     }
 

@@ -8,8 +8,8 @@ import java.io.FileOutputStream;
 
 public class Main {
 
-    static String pathTarg = "D:\\11\\";
-    static String pathDest = "D:\\22\\";
+    static String pathTarg = "C:\\Temp\\11\\";
+    static String pathDest = "C:\\Temp\\22\\";
 
     public static void main(String[] args) throws Exception {
         // копирование всех файлов из одного каталога в другой

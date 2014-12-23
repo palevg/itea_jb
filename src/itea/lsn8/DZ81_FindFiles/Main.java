@@ -22,7 +22,7 @@ public class Main {
 	private static void findFiles(String srcPath, String[] ext, ArrayList<String> list) throws IOException {
 		File dir = new File(srcPath);
 		File[] files;
-		//for (String s : ext)
+		//for (String s : ext) - другой вариант цикла
 		for (int i = 0; i < ext.length; i++) {
 			files = dir.listFiles(new MyFileFilter(ext[i]));
 			for (int j = 0; j < files.length; j++) {
