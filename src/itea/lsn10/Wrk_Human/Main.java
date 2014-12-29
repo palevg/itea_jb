@@ -9,6 +9,8 @@ public class Main {
         Human h1 = (Human) list[2].clone();
         System.out.println(h1.equals(list[2]) + " - сравнение " + h1 + " и " + list[2]);
         System.out.println((h1.hashCode() == list[2].hashCode()) + " - сравнение хэш " + h1 + " и " + list[2]);
+        Human h2 = h1;
+        System.out.println((h1.hashCode() == h2.hashCode()) + " - сравнение хэш " + h1 + " и " + h2);
         System.out.println(h1.equals(list[1]) + " - сравнение " + h1 + " и " + list[1]);
         System.out.println((h1.hashCode() == list[1].hashCode()) + " - сравнение хэш " + h1 + " и " + list[1]);
         Arrays.sort(list);

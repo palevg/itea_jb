@@ -1,4 +1,4 @@
-package itea.lsn9.Wrk;
+package itea.lsn9.Wrk_streams;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
